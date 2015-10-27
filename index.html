@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -8,8 +10,8 @@
     <title>BhagasKara</title>
 </head>
 <body>
-<section class="jumbotron">
-    <div class="container">
+<section class="jumbotron" id="jumbotron">
+    <div class="container ">
         <div class="row">
             <div class="header">
                 <h1>Bhagas<span>kara</span>.</h1>
@@ -19,23 +21,47 @@
                     Etiam ultricies dui non libero dapibus, eget pellentesque massa volutpat.</h5>
             </div>
         </div>
+        <div class="row menuicons">
+            <div class="lower">
+                <img src="images/menuabout.png" />
+                <img src="images/menuteam.png" />
+            </div>
+            <img src="images/menuservices.png" />
+            <img src="images/menuportfolio.png" />
+            <div class="lower">
+            <img src="images/menublog.png" />
+            <img src="images/menukontakt.png" />
+                </div>
+        </div>
+        <div class="row arrow">
+            <img src="images/menuarrow.png" />
+        </div>
     </div>
 </section>
 
-<section class="menu">
+<section class="menu" id="menu">
     <div class="container">
         <div class="row">
+        </div>
+        <div class="row">
             <h1>Bhagas<span>kara</span>.</h1>
+
             <div class="nav">
-                <p>home</p>
-                <p>about</p>
-                <p>team</p>
-                <p>services</p>
-                <p>portfolio</p>
-                <p>blog</p>
-                <p>contact</p>
+                <div class="rwdMenu">
+                    <p>Show menu</p>
+                </div>
+                    <div class="categories">
+                        <p><a href="#jumbotron">home</a></p>
+                        <p><a href="#about">about</a></p>
+                        <p><a href="#ourTeam">team</a></p>
+                        <p><a href="#slider">services</a></p>
+                        <p><a href="#portfolio">portfolio</a></p>
+                        <p><a href="">blog</a></p>
+                        <p><a href="#contact">contact</a></p>
+                    </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -68,7 +94,7 @@
 
 
 
-<section class="about">
+<section class="about" id="about">
     <div class="container">
         <div class="row">
                 <h3>About<span> us</span></h3>
@@ -93,26 +119,23 @@
 <section class="blurredImage">
     <div class="container">
         <div class="first">
-            <img src="images/ikonka.png" />
-            <div class="inside">
-                <img src="images/study.png" />
-            </div>
+            <img src="images/welorem.png" />
         </div>
             <h3>We will lorem and ipsum your aliquam</h3>
     </div>
 </section>
 
-<section class="ourTeam">
+<section class="ourTeam" id="ourTeam">
     <div class="container">
         <div class="row">
                 <h3>Our team</h3>
         </div>
         <div class="row arrows">
-            <img src="images/purplearrowleft.png" />
-            <img src="images/purplearrowright.png" />
+            <img id="left" src="images/purplearrowleft.png" />
+            <img id="right" src="images/purplearrowright.png" />
         </div>
-        <div class="row">
-             <div class="emplyee">
+        <div class="row" id="carousel">
+             <div class="emplyee" id="emplyee">
                  <img src="images/mugshot.png" />
                  <h5>anne hathaway</h5>
                  <p>ceo / marketing guru</p>
@@ -157,14 +180,16 @@
 <section class="blurredImage">
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="first">
+                <img src="images/ourservices.png" />
+            </div>
                 <h3>Our services will lorem and ipsum your aliquam</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section class="slider">
+<section class="slider" id="slider">
     <div class="container">
         <div class="row">
             <div class="col-3"></div>
@@ -184,7 +209,7 @@
     </div>
 </section>
 
-<section class="Portfolio">
+<section class="Portfolio" id="portfolio">
     <div class="container">
         <div class="row">
             <div>
@@ -264,7 +289,7 @@
     </div>
 </section>
 
-<section class="contact">
+<section class="contact" id="contact">
     <div class="container">
         <div class="row">
             <div>
