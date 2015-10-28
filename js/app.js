@@ -47,7 +47,74 @@ $(function(){
         }
         else{
             categories.show();
-
         };
     });
+
+
+
+        var leftArrow = $("#left");
+        var rightArrow = $("#right");
+
+        var person1 = $(".emplyee1");
+        var person2 = $(".emplyee2");
+        var person3 = $(".emplyee3");
+
+        var skills1 = $(".skills1");
+        var skills2 = $(".skills2");
+        var skills3 = $(".skills3");
+
+        var allPersons = $("#carousel");
+
+        rightArrow.on("click", function(event){
+console.log("right");
+            event.preventDefault();
+            var people = $(".person");
+
+            people.eq(2).clone(true).prependTo(allPersons);
+            people.eq(2).remove();
+
+            if(people.eq(0).hasClass("emplyee1")) {
+                skills2.hide(500);
+                skills3.hide(500);
+                skills1.show(500);
+            } else if (people.eq(0).hasClass("emplyee2")) {
+                skills1.hide(500);
+                skills3.hide(500);
+                skills2.show(500);
+            } else if (people.eq(0).hasClass("emplyee3")) {
+                skills1.hide(500);
+                skills2.hide(500);
+                skills3.show(500);
+            }
+
+        });
+
+        leftArrow.on("click", function(event){
+            console.log("left");
+            event.preventDefault();
+            var people = $(".person");
+
+            people.eq(0).clone(true).appendTo(allPersons);
+            people.eq(0).remove();
+
+            if(people.eq(2).hasClass("emplyee1")) {
+                skills2.hide(700);
+                skills3.hide(700);
+                skills1.show(700);
+            } else if (people.eq(2).hasClass("emplyee2")) {
+                skills1.hide(700);
+                skills3.hide(700);
+                skills2.show(700);
+            } else if (people.eq(2).hasClass("emplyee3")) {
+                skills1.hide(700);
+                skills2.hide(700);
+                skills3.show(700);
+            }
+
+        });
+
+
+});
+
+
 

@@ -375,11 +375,11 @@ span {
     flex: 1 100%;
     align-self: center;
   }
-img {
-  align-self: center;
-  justify-self: center;
-  margin: auto;
-}
+  img {
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+  }
   .first {
     display: flex;
     -webkit-flex-direction: row;
@@ -551,13 +551,15 @@ img {
   }
   img {
     padding: 1em;
+    max-width: 17em;
+    max-height: 17em;
   }
   .buttons {
     width: 50%;
     margin-bottom: 2.5em;
   }
   input[type="button"] {
-   margin-right: 1em;
+    margin-right: 1em;
     text-transform: uppercase;
   }
   input[type="button"]:last-of-type {
@@ -596,18 +598,18 @@ img {
 
 
 .contact {
-    .container {
-      display: -webkit-flex;
-      display: flex;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-flex-flow: row;
-      flex-flow: row;
-      margin-top: 4em;
-      margin-bottom: 8em;
-    }
+  .container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    margin-top: 4em;
+    margin-bottom: 8em;
+  }
   .contactForm {
     display: -webkit-flex;
     display: flex;
