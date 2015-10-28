@@ -189,6 +189,7 @@ span {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+  z-index:99999;
   .nav {
     -webkit-order: 0;
     -ms-flex-order: 0;
@@ -536,6 +537,28 @@ span {
     -webkit-align-content: stretch;
     align-content: stretch;
   }
+  .mainPortfolio {
+    display: -webkit-flex;
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
   h3 {
     text-align: center;
     font-color: map-get($colors, grey6);
@@ -549,11 +572,12 @@ span {
     justify-self: center;
     align-self: center;
   }
+
   img {
     padding: 1em;
-    max-width: 17em;
-    max-height: 17em;
+    width: 100%;
   }
+
   .buttons {
     width: 50%;
     margin-bottom: 2.5em;
@@ -566,6 +590,12 @@ span {
     margin-right: 0;
   }
   .example {
+    .image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+    }
     h5 {
       font-size: 1.5em;
       text-align: center;
@@ -591,7 +621,26 @@ span {
     a :last-of-type {
       padding-right: 0;
     }
-
+    .plus {
+      font-size: 13em;
+      font-weight: 100;
+      display: inline-block;
+      padding: 0 20px;
+      z-index: 10;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+      visibility: hidden;
+    }
+  }
+  .image:hover .plus {
+    visibility: visible;
   }
 }
 
