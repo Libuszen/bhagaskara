@@ -223,7 +223,7 @@ span {
     text-align: right;
     display: none; }
 
-.icons {
+.iconsAbout {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -231,25 +231,25 @@ span {
   padding-top: 10em;
   padding-bottom: 10em;
   background-color: #eeeeee; }
-  .icons .description {
+  .iconsAbout .description {
     padding-right: 1em;
     justify-items: center;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column; }
-  .icons .description:last-of-type {
+  .iconsAbout .description:last-of-type {
     padding-right: 0; }
-  .icons h5 {
+  .iconsAbout h5 {
     font-size: 1.2em;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     text-align: center; }
-  .icons p {
+  .iconsAbout p {
     text-align: center;
     font-size: 1em;
     line-height: 1.5em; }
-  .icons img {
+  .iconsAbout img {
     width: 70%;
     align-self: center; }
 

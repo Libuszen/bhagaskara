@@ -90,7 +90,6 @@ console.log("right");
         });
 
         leftArrow.on("click", function(event){
-            console.log("left");
             event.preventDefault();
             var people = $(".person");
 
@@ -119,10 +118,10 @@ console.log("right");
     $('.image').click(function(){
         console.log(this)
         var elem = $(this).children("img")[0]
-        //console.log(elem);
+
         var  data = $(elem).data('large')
         var img = "<img src='"+ data + "'>"
-        //$('body').append(img)
+
 
         if ($('#lightbox').length > 0) {
             $('#content').html("<img src='"+ data + "'>");
@@ -132,7 +131,7 @@ console.log("right");
             var lightbox =
                 '<div id="lightbox">' +
                 '<p>Click to close</p>' +
-                '<div id="content">' + //insert clicked link's href into img src
+                '<div id="content">' +
                 "<img src='"+ data + "'>" +
                 '</div>' +
                 '</div>';
@@ -141,11 +140,37 @@ console.log("right");
         $('#lightbox').click(function() {
             $('#lightbox').hide();
         });
-        //console.log(img)
 
-            //.css("display", "block");
-        //console.log("clicked");
+    });
 
+
+    var buttonWeb = $('input[value="web"]');
+    var buttonAll = $('input[value="all"]');
+    var buttonApps = $('input[value="apps"]');
+    var buttonIcons = $('input[value="icons"]');
+    var example = $(".example");
+
+
+
+
+    buttonWeb.on("click", function(event){
+        example.hide();
+        $(".ui").show();
+    });
+
+    buttonApps.on("click", function(event){
+        example.hide();
+        $(".apps").show();
+    });
+
+    buttonIcons.on("click", function(event){
+        example.hide();
+        $(".icons").show();
+    });
+
+    buttonAll.on("click", function(event){
+        var example = $(".example")
+        example.show();
     });
 
 
