@@ -525,6 +525,7 @@ span {
 
 
 .Portfolio {
+
   .container {
     display: -webkit-flex;
     display: flex;
@@ -559,6 +560,9 @@ span {
     -ms-flex-align: start;
     align-items: flex-start;
   }
+  .portfolio2 {
+    margin-bottom: 4em;
+  }
   h3 {
     text-align: center;
     font-color: map-get($colors, grey6);
@@ -576,6 +580,7 @@ span {
   img {
     padding: 1em;
     width: 100%;
+    height: auto;
   }
 
   .buttons {
@@ -617,6 +622,7 @@ span {
       padding-right: 0.5em;
       text-decoration: none;
       color: map_get($colors, grey5);
+
     }
     a :last-of-type {
       padding-right: 0;
@@ -625,11 +631,12 @@ span {
       font-size: 13em;
       font-weight: 100;
       display: inline-block;
-      padding: 0 20px;
+      text-align: center;
       z-index: 10;
       position: absolute;
       margin-left: auto;
       margin-right: auto;
+      top: 0;
       left: 0;
       right: 0;
       width: 100%;
@@ -641,6 +648,31 @@ span {
   }
   .image:hover .plus {
     visibility: visible;
+  }
+
+  #lightbox {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.7);
+    text-align:center;
+    display: none;
+    z-index: 9999999;
+    p {
+      text-align:right;
+      color:#fff;
+      margin-right:20px;
+      font-size:12px;
+    }
+    img {
+      box-shadow:0 0 25px #111;
+      -webkit-box-shadow:0 0 25px #111;
+      -moz-box-shadow:0 0 25px #111;
+      margin:auto;
+      max-width:940px;
+    }
   }
 }
 
@@ -654,8 +686,8 @@ span {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    -webkit-flex-flow: row;
-    flex-flow: row;
+    -webkit-flex-flow: column;
+    flex-flow: column;
     margin-top: 4em;
     margin-bottom: 8em;
   }
@@ -668,9 +700,42 @@ span {
     justify-content: center;
     -webkit-flex-flow: column;
     flex-flow: column;
+    flex: 1;
+    input {
+      display: block;
+      width: 20em;
+      height: 2em;
+      font-size: 1em;
+      margin-bottom: 0.7em;
+      value-color: map_get($colors, grey8);
+    }
+    textarea {
+      width: 20em;
+      height: 4em;
+      font-size: 1em;
+      font-family: inherit;
+      value-color: map_get($colors, violet1);
+    }
+  }
+  .adress {
+    flex: 1;
+  }
+  h3 {
+    text-align: center;
+    font-color: map-get($colors, grey6);
+    font-size: 2em;
+    margin-top: 2em;
+    margin-bottom: 2.2em;
+    padding: 0.5em;
+    text-align: center;
+    flex: 50%;
+    border: 4px solid black;
+    justify-self: center;
+    align-self: center;
   }
 }
 
 footer {
-
+ padding-top: 3em;
+  padding-bottom: 3em;
 }

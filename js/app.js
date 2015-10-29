@@ -114,6 +114,41 @@ console.log("right");
         });
 
 
+
+
+    $('.image').click(function(){
+        console.log(this)
+        var elem = $(this).children("img")[0]
+        //console.log(elem);
+        var  data = $(elem).data('large')
+        var img = "<img src='"+ data + "'>"
+        //$('body').append(img)
+
+        if ($('#lightbox').length > 0) {
+            $('#content').html("<img src='"+ data + "'>");
+            $('#lightbox').show();
+        }
+        else {
+            var lightbox =
+                '<div id="lightbox">' +
+                '<p>Click to close</p>' +
+                '<div id="content">' + //insert clicked link's href into img src
+                "<img src='"+ data + "'>" +
+                '</div>' +
+                '</div>';
+            $('body').append(lightbox);
+        }
+        $('#lightbox').click(function() {
+            $('#lightbox').hide();
+        });
+        //console.log(img)
+
+            //.css("display", "block");
+        //console.log("clicked");
+
+    });
+
+
 });
 
 
