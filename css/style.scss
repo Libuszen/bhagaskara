@@ -398,7 +398,7 @@ span {
   }
   h3 {
     text-align: center;
-    font-color: map-get($colors, grey6);
+    color: map-get($colors, grey6);
     font-size: 2em;
     margin-top: 2em;
     margin-bottom: 2.2em;
@@ -565,7 +565,7 @@ span {
   }
   h3 {
     text-align: center;
-    font-color: map-get($colors, grey6);
+    color: map-get($colors, grey6);
     font-size: 2em;
     margin-top: 2em;
     margin-bottom: 2.2em;
@@ -596,7 +596,7 @@ span {
     }
     h5 {
       text-align: center;
-      font-color: map-get($colors, grey6);
+      color: map-get($colors, grey6);
       font-size: 1.5em;
       margin-top: 1em;
       margin-bottom: 0.2em;
@@ -641,11 +641,29 @@ span {
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
+
     img {
       width: 20%;
       align-self: center;
       padding: 2em;
     }
+    .skills1 {
+      .progress {
+        width: 25em;
+        background-color: map_get($colors, grey8);
+        position: relative;
+      }
+      .progress-bar {
+        height: 0.7em;
+        background-color: map_get($colors, violet1);
+        animation-name: expandWidth;
+        animation-duration: 4s;
+      }
+      @keyframes expandWidth {
+        0% {width: 0;}
+      }
+    }
+
   }
   .skills:last-of-type {
     padding-right: 0;
@@ -706,7 +724,7 @@ span {
   h3 {
 
     text-align: center;
-    font-color: map-get($colors, grey6);
+    color: map-get($colors, grey6);
     font-size: 2em;
     margin-top: 2em;
     margin-bottom: 2.2em;
@@ -893,7 +911,7 @@ span {
   }
   h3 {
     text-align: center;
-    font-color: map-get($colors, grey6);
+    color: map-get($colors, grey6);
     font-size: 2em;
     margin-top: 2em;
     margin-bottom: 2.2em;
