@@ -91,6 +91,20 @@ body {
     margin-left: 0; }
 
   .contact .container .row .adress form {
+    width: 100%; }
+
+  .about .container .row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap; }
+
+  .about .container .row .devices .devicesImage {
+    width: 100%; }
+
+  .about .container .row .devices .devicesText {
     width: 100%; } }
 @media screen and (min-width: 481px) and (max-width: 960px) {
   section .container {
