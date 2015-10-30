@@ -416,6 +416,7 @@ span {
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
+    position: relative;
     .devicesImage img {
       -webkit-order: 0;
       -ms-flex-order: 0;
@@ -426,7 +427,9 @@ span {
       -webkit-align-self: auto;
       -ms-flex-item-align: auto;
       align-self: auto;
-      width: 100%;
+      width: 55%;
+      height: auto;
+
     }
     .devicesText {
       -webkit-order: 0;
@@ -452,6 +455,14 @@ span {
       align-content: space-between;
       -webkit-align-items: flex-start;
       align-items: flex-start;
+      bottom:0;
+      position: absolute;
+      right:0;
+      top: 0;
+      width: 40%;
+      margin-left: 4em;
+
+
       p {
         -webkit-order: 0;
         -ms-flex-order: 0;
@@ -473,6 +484,8 @@ span {
         -webkit-align-self: flex-start;
         -ms-flex-item-align: start;
         align-self: flex-start;
+        positon: absolute;
+        bottom: 0;
       }
     }
   }
