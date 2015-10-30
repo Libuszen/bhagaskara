@@ -19,15 +19,23 @@ $colors: (
         grey8: #d9d9d9,
 );
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 200px) /*and (max-width: 480px)*/ {
 
   .jumbotron .menuicons img{
     display: none;
   }
-  .header h1{
+  .jumbotron .header h1{
     font-size: 2em;
   }
-  
+  .iconsAbout .container .row{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 960px) {
@@ -35,7 +43,30 @@ $colors: (
   .jumbotron .menuicons img{
     display: none;
   }
+  .iconsAbout .container .row{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
 
+  }
+  .iconsAbout .container .row .description {
+    width: 50%;
+  }
+  .ourTeam .container  #carousel .person {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+
+  }
+  .ourTeam .container  #carousel .person img{
+    -webkit-align-self: center;
+    align-self: center;
+
+  }
 }
 
 

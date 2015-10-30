@@ -170,6 +170,7 @@ console.log("right");
     buttonIcons.on("click", function(event){
         example.css("display", "none");
         $(".icons").css("display", "inline-block");
+        buttonWatchMore.css("display", "none");
 
     });
 
