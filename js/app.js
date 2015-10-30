@@ -64,6 +64,7 @@ $(function(){
         var skills3 = $(".skills3");
 
         var allPersons = $("#carousel");
+    var h5 =
 
         rightArrow.on("click", function(event){
 console.log("right");
@@ -148,29 +149,33 @@ console.log("right");
     var buttonAll = $('input[value="all"]');
     var buttonApps = $('input[value="apps"]');
     var buttonIcons = $('input[value="icons"]');
+    var buttonWatchMore = $('input[value="Watch more"]');
     var example = $(".example");
 
 
 
 
     buttonWeb.on("click", function(event){
-        example.hide();
-        $(".ui").show();
+        example.css("display", "none");
+        $(".ui").css("display", "inline-block");
+        buttonWatchMore.addClass("non-visible");
     });
 
     buttonApps.on("click", function(event){
-        example.hide();
-        $(".apps").show();
+        example.css("display", "none");
+        $(".apps").css("display", "inline-block");
+        buttonWatchMore.css("display", "none");
     });
 
     buttonIcons.on("click", function(event){
-        example.hide();
-        $(".icons").show();
+        example.css("display", "none");
+        $(".icons").css("display", "inline-block");
+
     });
 
     buttonAll.on("click", function(event){
-        var example = $(".example")
-        example.show();
+        example.css("display", "inline-block");
+        buttonWatchMore.css("display", "inline-block");
     });
 
 
