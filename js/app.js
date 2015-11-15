@@ -9,7 +9,7 @@ $(function(){
 
     $(window).scroll(function(event){
         if( menu.hasClass("sticky")=== false &&
-            $(this).scrollTop() > menu.offset().top){
+            $(this).scrollTop() > menu.offset().top {
             lastPositionTop = menu.offset().top;
             menu.addClass("sticky");
         }
@@ -178,6 +178,8 @@ console.log("right");
         example.css("display", "inline-block");
         buttonWatchMore.css("display", "inline-block");
     });
+
+
 
 
 });
