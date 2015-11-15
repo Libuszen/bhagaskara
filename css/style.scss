@@ -1,131 +1,10 @@
 @import "reset";
+@import "mixins";
 
 body {
   font-family: "Lato", sans-serif;
   max-width: 2000px;
   background-color: white;
-}
-
-
-
-@mixin flexbox {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-%flexbox {
-  @include flexbox;
-}
-
-@mixin inline-flex {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-%inline-flex {
-  @include inline-flex;
-}
-
-@mixin flex-direction($value: row) {
-  @if $value == row-reverse {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: horizontal;
-  } @else if $value == column {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-  } @else if $value == column-reverse {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: vertical;
-  } @else {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-  }
-  -webkit-flex-direction: $value;
-  -moz-flex-direction: $value;
-  -ms-flex-direction: $value;
-  flex-direction: $value;
-}
-
-@mixin flex-wrap($value: nowrap) {
-  -webkit-flex-wrap: $value;
-  -moz-flex-wrap: $value;
-  @if $value == nowrap {
-    -ms-flex-wrap: none;
-  } @else {
-    -ms-flex-wrap: $value;
-  }
-  flex-wrap: $value;
-}
-
-@mixin justify-content($value: flex-start) {
-  @if $value == flex-start {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-  } @else if $value == flex-end {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-  } @else if $value == space-between {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-  } @else if $value == space-around {
-    -ms-flex-pack: distribute;
-  } @else {
-    -webkit-box-pack: $value;
-    -ms-flex-pack: $value;
-  }
-  -webkit-justify-content: $value;
-  -moz-justify-content: $value;
-  justify-content: $value;
-}
-
-@mixin align-items($value: stretch) {
-  @if $value == flex-start {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-  } @else if $value == flex-end {
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-  } @else {
-    -webkit-box-align: $value;
-    -ms-flex-align: $value;
-  }
-  -webkit-align-items: $value;
-  -moz-align-items: $value;
-  align-items: $value;
-}
-
-
-@mixin align-self($value: auto) {
-  -webkit-align-self: $value;
-  -moz-align-self: $value;
-  @if $value == flex-start {
-    -ms-flex-item-align: start;
-  } @else if $value == flex-end {
-    -ms-flex-item-align: end;
-  } @else {
-    -ms-flex-item-align: $value;
-  }
-  align-self: $value;
-}
-
-
-@mixin align-content($value: stretch) {
-  -webkit-align-content: $value;
-  -moz-align-content: $value;
-  @if $value == flex-start {
-    -ms-flex-line-pack: start;
-  } @else if $value == flex-end {
-    -ms-flex-line-pack: end;
-  } @else {
-    -ms-flex-line-pack: $value;
-  }
-  align-content: $value;
 }
 
 
@@ -141,10 +20,12 @@ $colors: (
         grey8: #d9d9d9,
 );
 
+
+
 @media screen and (min-width: 200px) and (max-width: 480px){
- section .container {
-   width: 90%;
- }
+  section .container {
+    width: 90%;
+  }
   .jumbotron .menuicons img{
     display: none;
   }
@@ -168,7 +49,7 @@ $colors: (
     justify-content: flex-start;
   }
   .Portfolio .container .mainPortfolio .example {
-   width: 100%;
+    width: 100%;
   }
 
   .contact .container .row {
@@ -283,26 +164,10 @@ input[type="button"] {
 }
 
 .row {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  box-orient: horizontal;
-  flex-direction: row;
-
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  justify-content: center;
-
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  align-items: center;
+   @include display-flex();
+   @include flex-direction($direction: row);
+   @include justify-content($justify: center);
+   @include align-items($align: center);
 }
 
 span {
@@ -318,8 +183,6 @@ span {
   padding-top: 1.2em;
   padding-bottom: 1em;
 }
-
-
 
 
 
@@ -361,8 +224,8 @@ span {
     flex: 1 1 auto;
     padding: 10px;
     text-align: center;
-    display: flex;
-    align-items: center;
+    @include display-flex();
+    @include align-items($align: center);
     box-sizing: content-box;
     img {
       width: auto;
@@ -388,54 +251,30 @@ span {
 .menu {
   margin-top: 1.2em;
   margin-bottom: 1em;
-  display: -webkit-flex;
-  display: flex;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  @include display-flex();
+  @include flex-direction($direction: row);
+  @include flex-wrap($wrap: nowrap);
+  @include justify-content($justify: flex-start);
+  @include align-items($align: flex-start);
+  @include align-content($align: stretch);
   z-index:99999;
   .nav {
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
     -webkit-flex: 2 1 auto;
     -ms-flex: 2 1 auto;
     flex: 2 1 auto;
-    -webkit-align-self: flex-end;
-    -ms-flex-item-align: end;
-    align-self: flex-end;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    align-content: flex-end;
+    @include order($order: 0);
+    @include align-self($align: flex-end);
+    @include flex-direction($direction: row);
+    @include align-content($align: flex-end);
     width: 100%;
     text-align: right;
   }
   h1 {
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
+    @include order($order: 0);
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    -webkit-align-self: auto;
-    -ms-flex-item-align: auto;
-    align-self: auto;
+    @include align-self($align: flex-end);
     font-size: 1.4em;
   }
   p {
@@ -448,40 +287,24 @@ span {
     padding-right: 0;
   }
   .rwdMenu {
-    display: -webkit-flex;
-    display: flex;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+    @include display-flex();
+    @include align-items($align: center);
     font-size: 1em;
     text-align: right;
     display: none;
   }
 }
-
-
-
-
-
-
 .iconsAbout {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
+  @include display-flex();
+  @include flex-direction($direction: row);
   padding-top: 10em;
   padding-bottom: 10em;
   background-color: map_get($colors, grey1);
   .description {
     padding-right: 1em;
     justify-items: center;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
+    @include display-flex();
+    @include flex-direction($direction: column);
   }
   .description:last-of-type {
     padding-right: 0;
@@ -499,22 +322,17 @@ span {
   }
   img {
     width: 70%;
-    align-self: center;
+    @include align-self($align: center);
   }
 }
 
 .about {
   .container {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
-    -webkit-align-content: stretch;
-    align-content: stretch;
+    @include display-flex();
+    @include align-items($align: center);
+    @include flex-direction($direction: column);
+    @include flex-wrap($wrap: wrap);
+    @include align-content($align: stretch);
     margin-top: 4em;
     margin-bottom: 8em;
   }
@@ -528,96 +346,60 @@ span {
     text-align: center;
     flex: 50%;
     border: 4px solid black;
-    justify-self: center;
-    align-self: center;
+    @include align-self($align: center);
   }
   .devices {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-content: space-between;
-    -ms-flex-line-pack: justify;
-    align-content: space-between;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
+    @include display-flex();
+    @include flex-direction($direction: row);
+    @include flex-wrap($wrap: nowrap);
+    @include justify-content($justify: center);
+    @include align-content($align: space-between);
+    @include align-items($align: flex-start);
     position: relative;
-    .devicesImage img {
-      -webkit-order: 0;
-      -ms-flex-order: 0;
-      order: 0;
-      -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-      flex: 0 1 auto;
-      -webkit-align-self: auto;
-      -ms-flex-item-align: auto;
-      align-self: auto;
-      width: 55%;
-      height: auto;
-
-    }
-    .devicesText {
-      -webkit-order: 0;
-      -ms-flex-order: 0;
-      order: 0;
-      -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-      flex: 0 1 auto;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-      align-content: space-between;
-      -webkit-align-items: flex-start;
-      align-items: flex-start;
-      bottom:0;
-      position: absolute;
-      right:0;
-      top: 0;
-      width: 40%;
-      margin-left: 4em;
-
-
-      p {
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
+    .devicesImage {
+      @include display-flex();
+      @include flex-direction($direction: column);
+      img {
+        @include order($order: 0);
         -webkit-flex: 0 1 auto;
         -ms-flex: 0 1 auto;
         flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
+      @include align-self($align: auto);
+        width: 55%;
+        height: auto;
+      }
+    }
+      .devicesText {
+        @include display-flex();
+        @include order($order: 0);
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        @include flex-direction($direction: column);
+        @include flex-wrap($wrap: nowrap);
+        @include align-content($align: space-between);
+        @include justify-content($justify: space-between);
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40%;
+        margin-left: 4em;
+      p {
+        @include order($order: 0);
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        @include align-self($align: auto);
       }
       input {
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
+        @include order($order: 0);
         -webkit-flex: 0 1 auto;
         -ms-flex: 0 1 auto;
         flex: 0 1 auto;
-        -webkit-align-self: flex-start;
-        -ms-flex-item-align: start;
-        align-self: flex-start;
+        @include align-self($align: flex-start);
         positon: absolute;
         bottom: 0;
       }
@@ -698,51 +480,51 @@ span {
     justify-self: center;
     align-self: center;
   }
-    .person {
-      display: -webkit-flex;
-      display: flex;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-flex-flow: column;
-      flex-flow: column;
-      img {
-        width: 70%;
-        margin-top: 4em;
-        -webkit-align-self: center;
-        align-self: center;
-        -webkit-justify-self: center;
-        justify-self: center;
-      }
-    }
-    h5 {
-      text-align: center;
-      color: map-get($colors, grey6);
-      font-size: 1.5em;
-      margin-top: 1em;
-      margin-bottom: 0.2em;
-      padding: 0.5em;
-      text-align: center;
-      flex: 1;
-      justify-self: center;
+  .person {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-flow: column;
+    flex-flow: column;
+    img {
+      width: 70%;
+      margin-top: 4em;
+      -webkit-align-self: center;
       align-self: center;
-      text-transform: uppercase;
-    }
-    p {
-      text-align: center;
-      flex: 1;
+      -webkit-justify-self: center;
       justify-self: center;
-      align-self: center;
-      text-transform: uppercase;
     }
-    .social {
-      img {
-        max-height: 1.5em;
-        max-width: 1.5em;
-      }
+  }
+  h5 {
+    text-align: center;
+    color: map-get($colors, grey6);
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    padding: 0.5em;
+    text-align: center;
+    flex: 1;
+    justify-self: center;
+    align-self: center;
+    text-transform: uppercase;
+  }
+  p {
+    text-align: center;
+    flex: 1;
+    justify-self: center;
+    align-self: center;
+    text-transform: uppercase;
+  }
+  .social {
+    img {
+      max-height: 1.5em;
+      max-width: 1.5em;
+    }
 
-    }
+  }
 
   .arrows {
     justify-self: center;
@@ -1047,7 +829,7 @@ span {
 }
 
 footer {
- padding-top: 3em;
+  padding-top: 3em;
   padding-bottom: 3em;
 }
 
